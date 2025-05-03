@@ -130,7 +130,7 @@ const ContactMe = () => {
       animate={isVisible ? "visible" : "hidden"}
       variants={container}
       id="contact-section"
-      className="w-full px-4 py-16 max-w-7xl mx-auto mt-12 relative overflow-hidden"
+      className="w-full px-4 py-16 max-w-7xl mx-auto mt-12 relative overflow-visible" // Changed overflow to visible
     >
       {/* Background pattern */}
       <motion.div
