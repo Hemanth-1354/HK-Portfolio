@@ -10,6 +10,7 @@ import Education from "@/components/Education";
 import { NotificationProvider } from "@/context/NotificationContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Experience from "../components/Experience";
+import EndCard from "@/components/endcard" 
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
           <Education />
           <ContactMe />
           <FloatingBar />
+          <EndCard />
         </NotificationProvider>
       </Background>
     </ThemeProvider>

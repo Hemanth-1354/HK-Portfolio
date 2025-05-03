@@ -145,7 +145,7 @@ const ContactMe = () => {
       
       {/* Card container with enhanced border effect */}
       <motion.div
-        className="relative bg-card border-4 border-border rounded-2xl shadow-lg p-8 md:p-12 overflow-hidden"
+        className="relative bg-card border-4 border-border rounded-2xl shadow-lg p-6 md:p-8 overflow-hidden" // Reduced padding
         variants={pulseVariants}
         animate="pulse"
       >
@@ -174,7 +174,7 @@ const ContactMe = () => {
         <motion.div className="relative z-10">
           <motion.h2 
             variants={item}
-            className="text-4xl md:text-5xl font-bold text-foreground mb-8 text-center flex items-center justify-center"
+            className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center flex items-center justify-center" // Reduced font size
           >
             Let's Brew Some Code Together
             <motion.div
@@ -182,7 +182,7 @@ const ContactMe = () => {
               variants={coffeeVariants}
               animate="idle"
             >
-              <span className="text-4xl md:text-5xl">☕</span>
+              <span className="text-3xl md:text-4xl">☕</span> 
               {/* Steam effect */}
               <motion.div
                 className="absolute -top-6 left-1/2 transform -translate-x-1/2 flex space-x-1"
@@ -197,12 +197,12 @@ const ContactMe = () => {
           </motion.h2>
           
           <motion.div 
-            className="w-full flex flex-col items-center gap-6"
+            className="w-full flex flex-col items-center gap-4" // Reduced gap
             variants={container}
           >
             <motion.p 
               variants={item}
-              className="text-muted-foreground text-center text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
+              className="text-muted-foreground text-center text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" // Reduced font size
             >
               Got an idea that needs {" "}
               <AnimatePresence mode="wait">
@@ -242,7 +242,7 @@ const ContactMe = () => {
                   boxShadow: "0 0 25px rgba(66, 153, 225, 0.5)"
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative bg-primary text-primary-foreground font-bold py-4 px-10 rounded-full border-2 border-primary/30 transition-all duration-300 shadow-md overflow-hidden group"
+                className="relative bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full border-2 border-primary/30 transition-all duration-300 shadow-md overflow-hidden group" // Reduced padding
               >
                 {/* Enhanced shimmer effect */}
                 <motion.span 
@@ -260,7 +260,7 @@ const ContactMe = () => {
                 />
                 
                 {/* Button content with animated emojis */}
-                <span className="relative z-10 flex items-center gap-3 text-lg">
+                <span className="relative z-10 flex items-center gap-2 text-base"> 
                   {isHovered ? (
                     <>
                       <motion.span
@@ -299,7 +299,7 @@ const ContactMe = () => {
                           x: [0, 5, 0],
                           transition: { duration: 1, repeat: Infinity }
                         }}
-                        className="text-xl"
+                        className="text-lg" // Reduced font size
                       >
                         →
                       </motion.span>
@@ -310,7 +310,7 @@ const ContactMe = () => {
 
               <motion.p
                 variants={item}
-                className="text-sm text-muted-foreground mt-6 flex items-center"
+                className="text-xs text-muted-foreground mt-4 flex items-center" // Reduced font size
               >
                 <motion.span
                   animate={{ scale: [1, 1.2, 1] }}
@@ -333,34 +333,36 @@ const ContactMe = () => {
             {/* Social proof elements */}
             <motion.div
               variants={item}
-              className="w-full max-w-lg mx-auto mt-6 p-4 bg-background/50 rounded-xl border border-border/40 backdrop-blur-sm"
+              className="w-full max-w-md mx-auto mt-4 p-3 bg-background/50 rounded-xl border border-border/40 backdrop-blur-sm" // Reduced padding and max-width
             >
               <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-2">Typical response time</p>
+                <p className="text-xs text-muted-foreground mb-2">Typical response time</p> 
                 <div className="flex items-center justify-center gap-1">
                   <motion.div 
-                    className="h-2 w-12 bg-primary rounded-full"
+                    className="h-2 w-10 bg-primary rounded-full" // Reduced width
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   />
                   <motion.div 
-                    className="h-2 w-12 bg-primary rounded-full"
+                    className="h-2 w-10 bg-primary rounded-full" // Reduced width
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
                   />
                   <motion.div 
-                    className="h-2 w-12 bg-primary rounded-full"
+                    className="h-2 w-10 bg-primary rounded-full" // Reduced width
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
                   />
                 </div>
-                <p className="font-medium mt-2">Usually within 24 hours</p>
+                <p className="font-medium mt-2 text-xs">Usually within 24 hours</p> 
               </div>
             </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
+      
     </motion.div>
+    
   );
 };
 

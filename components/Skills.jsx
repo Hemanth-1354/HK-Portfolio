@@ -37,6 +37,7 @@ const Skills = () => {
     { name: "Bootstrap", icon: <FaBootstrap color="#563d7c" />, category: ["frontend"], level: 85 },
     { name: "GitHub", icon: <FaGithubSquare color="#181717" />, category: ["tools"], level: 90 },
     { name: "Vue.js", icon: <FaVuejs color="#41b883" />, category: ["frontend"], level: 60 },
+    { name: "Vue.js", icon: <FaPhp color="#41b883" />, category: ["frontend"], level: 75 },
     { name: "Angular", icon: <FaAngular color="#dd1b16" />, category: ["frontend"], level: 60 },
     { name: "Stripe", icon: <FaStripe color="#6772e5" />, category: ["backend"], level: 70 },
     { name: "Firebase", icon: <FaDatabase color="#FFCA28" />, category: ["backend", "tools"], level: 75 },
@@ -116,7 +117,7 @@ const Skills = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? "bg-blue-600 text-white shadow-md"
+                    ? "bg-black text-white dark:bg-white dark:text-white shadow-md"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
                 }`}
               >

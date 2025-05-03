@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FaGraduationCap, FaBookOpen, FaCalendarAlt } from "react-icons/fa";
 
 const Education = () => {
   const educationItems = [
@@ -11,17 +12,17 @@ const Education = () => {
       href: "https://srmap.edu.in/",
       logo: "/Education/srmlogo.jpeg",
       alt: "SRM University AP Logo",
-      institution: "SRM University, Amaravati, Andhra Pradesh",
+      institution: "SRM University, Amaravati",
       period: "2022 - 2026",
       grade: "8.53 CGPA",
-      degree: "Bachelor of Technology in Computer Science and Engineering (CSE)",
+      degree: "B.Tech in Computer Science",
     },
     {
       id: 2,
       href: "https://navodaya.gov.in/",
       logo: "/Education/navodayalogo.jpeg",
       alt: "Jawahar Navodaya Vidyalaya Logo",
-      institution: "Jawahar Navodaya Vidyalaya (CBSE), Krishna, Andhra Pradesh",
+      institution: "Jawahar Navodaya Vidyalaya (CBSE)",
       period: "2020 - 2022",
       grade: "89.2%",
       degree: "12th Grade - PCM",
@@ -31,10 +32,10 @@ const Education = () => {
       href: "https://navodaya.gov.in/",
       logo: "/Education/navodayalogo.jpeg",
       alt: "Jawahar Navodaya Vidyalaya Logo",
-      institution: "Jawahar Navodaya Vidyalaya (CBSE), Krishna, Andhra Pradesh",
+      institution: "Jawahar Navodaya Vidyalaya (CBSE)",
       period: "2019 - 2020",
       grade: "93.8%",
-      degree: "Metriculation - 10th Grade",
+      degree: "10th Grade",
     },
   ];
 
@@ -49,7 +50,6 @@ const Education = () => {
     visible: {
       opacity: 1,
       transition: {
-        when: "beforeChildren",
         staggerChildren: 0.3,
         delayChildren: 0.2,
       },
@@ -57,87 +57,40 @@ const Education = () => {
   };
 
   const item = {
-    hidden: { y: 40, opacity: 0 },
-    visible: {
+    hidden: { y: 30, opacity: 0 },
+    visible: (index) => ({
       y: 0,
       opacity: 1,
       transition: {
         type: "spring",
         stiffness: 80,
         damping: 12,
+        delay: index * 0.15
       },
-    },
+    }),
   };
 
-  const cardHover = {
-    y: -8,
-    scale: 1.02,
-    boxShadow: "0 20px 30px rgba(0, 0, 0, 0.08)",
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 15,
-    },
-  };
-
-  const logoHover = {
-    scale: 1.15,
-    rotate: [0, 5, -5, 0],
-    boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
-    transition: {
-      duration: 0.8,
-    },
-  };
-
-  // Enhanced title animation
+  // Title animations
   const titleVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
   };
 
   const underlineVariants = {
-    hidden: { scaleX: 0, opacity: 0 },
+    hidden: { scaleX: 0 },
     visible: { 
-      scaleX: 1, 
-      opacity: 1,
+      scaleX: 1,
       transition: {
-        duration: 0.8,
-        delay: 0.4,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  // Timeline node animations
-  const nodeVariants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: index => ({
-      scale: 1,
-      opacity: 1,
-      transition: {
-        delay: 0.5 + (index * 0.2),
-        type: "spring",
-        stiffness: 300,
-        damping: 15
-      }
-    })
-  };
-
-  // Timeline line drawing animation
-  const lineVariants = {
-    hidden: { scaleY: 0 },
-    visible: { 
-      scaleY: 1,
-      transition: {
-        duration: 1.5,
-        ease: "easeInOut"
+        duration: 0.7,
+        delay: 0.3,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
@@ -145,171 +98,222 @@ const Education = () => {
   return (
     <motion.section
       ref={ref}
-      className="w-full px-4 py-20 max-w-7xl mx-auto flex flex-col gap-y-6 relative overflow-hidden"
+      className="w-full px-6 py-16 bg-white dark:bg-black"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={container}
       id="education"
     >
-      {/* Background decorative elements */}
-      <motion.div 
-        className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-black/5 to-transparent dark:from-white/5 rounded-full blur-3xl -mr-48 -mt-48 opacity-40"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 0.4 } : {}}
-        transition={{ duration: 1.5 }}
-      />
-      
-      <motion.div 
-        className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-t from-black/5 to-transparent dark:from-white/5 rounded-full blur-3xl -ml-40 -mb-40 opacity-40"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 0.4 } : {}}
-        transition={{ duration: 1.5, delay: 0.3 }}
-      />
-
-      {/* Enhanced Section Heading */}
-      <motion.div 
-        className="text-center mb-16 relative"
-        variants={titleVariants}
-      >
-        <h2 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-6 relative inline-block">
-          Education Journey
-          <motion.span
-            className="absolute -bottom-3 left-0 w-full h-1.5 bg-black dark:bg-white rounded-full"
-            variants={underlineVariants}
-            style={{ originX: 0 }}
-          />
-        </h2>
-        
-        <motion.p
-          className="text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto mt-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.8 }}
+      <div className="max-w-5xl mx-auto relative">
+        {/* Decorative element - subtle */}
+        <motion.div 
+          className="absolute top-10 right-0 opacity-5 hidden md:block"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={inView ? { 
+            opacity: 0.03, 
+            scale: 1,
+            rotate: -10,
+            transition: { delay: 0.5, duration: 0.8 }
+          } : {}}
         >
-          My academic path from foundational learning to specialized technical education
-        </motion.p>
-      </motion.div>
+          <div className="text-7xl font-bold select-none">EDU</div>
+        </motion.div>
 
-      {/* Timeline Wrapper with enhanced visuals */}
-      <div className="flex flex-col space-y-12 relative pl-12 sm:pl-16">
-        {/* Animated Vertical Line with gradient */}
+        {/* Enhanced Section Heading */}
+        <motion.div 
+          className="text-center mb-20 relative"
+          variants={titleVariants}
+        >
+          <div className="inline-block relative">
+            <motion.span
+              className="absolute -left-10 top-2 text-3xl"
+              initial={{ opacity: 0, x: -15 }}
+              animate={inView ? { opacity: 0.2, x: 0 } : {}}
+              transition={{ delay: 0.6, duration: 0.4 }}
+            >
+              <FaGraduationCap />
+            </motion.span>
+            
+            <h2 className="text-4xl font-bold text-black dark:text-white mb-4 relative inline-block">
+              Education Journey
+              <motion.span
+                className="absolute -bottom-1 left-0 w-full h-0.5 bg-black dark:bg-white rounded-full"
+                variants={underlineVariants}
+                style={{ originX: 0 }}
+              />
+            </h2>
+          </div>
+          
+          <motion.p
+            className="text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto mt-3"
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            My academic path from foundational learning to specialized technical education
+          </motion.p>
+        </motion.div>
+
+        {/* Timeline with vertical line */}
         <motion.div
-          className="w-1 absolute left-6 sm:left-8 top-0 bottom-0 bg-gradient-to-b from-black/90 via-black to-black/60 dark:from-white/90 dark:via-white dark:to-white/60 z-0 rounded-full"
-          variants={lineVariants}
-          style={{ originY: 0 }}
+          className="absolute left-6 top-40 bottom-10 w-0.5 bg-gray-300 dark:bg-gray-700"
+          initial={{ scaleY: 0 }}
+          animate={inView ? { scaleY: 1 } : {}}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          style={{ transformOrigin: "top" }}
         />
 
-        {/* Enhanced Education Items */}
-        {educationItems.map((edu, index) => (
-          <motion.div
-            key={edu.id}
-            variants={item}
-            custom={index}
-            className="relative z-10 flex items-start"
-          >
-            {/* Enhanced Timeline Node */}
+        <div className="space-y-10">
+          {educationItems.map((edu, index) => (
             <motion.div
-              className="absolute left-6 sm:left-8 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-              whileHover={logoHover}
+              key={edu.id}
               custom={index}
-              variants={nodeVariants}
+              variants={item}
+              className="relative flex items-start pl-16"
             >
-              <motion.span 
-                className="relative flex shrink-0 overflow-hidden rounded-full border-4 border-black dark:border-white w-14 h-14 bg-white dark:bg-black shadow-lg"
-                whileHover={{ 
-                  boxShadow: "0 0 0 4px rgba(0,0,0,0.2) dark:rgba(255,255,255,0.2)"
-                }}
-              >
-                <Image
-                  width={56}
-                  height={56}
-                  alt={edu.alt}
-                  src={edu.logo}
-                  className="object-cover transition-all duration-500" // Removed grayscale filter
-                  priority={index === 0}
-                />
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent dark:from-white/10 rounded-full"
-                  whileHover={{ opacity: 0 }}
-                />
-              </motion.span>
-            </motion.div>
-
-            {/* Enhanced Card with elegant black & white styling */}
-            <Link
-              href={edu.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block cursor-pointer w-full"
-            >
+              {/* Timeline node with logo */}
               <motion.div
-                className="ml-16 sm:ml-24 rounded-2xl bg-white dark:bg-black p-6 sm:p-8 shadow-lg hover:shadow-xl border-2 border-black/10 dark:border-white/10 flex flex-col sm:flex-row justify-between gap-6"
-                whileHover={cardHover}
-                initial={{ opacity: 0, x: 30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.4 + index * 0.2, duration: 0.6 }}
+                className="absolute left-0 top-4 z-10"
+                initial={{ scale: 0 }}
+                animate={inView ? { 
+                  scale: 1,
+                  transition: { 
+                    delay: 0.5 + index * 0.15,
+                    type: "spring",
+                    stiffness: 200
+                  }
+                } : {}}
               >
-                <div className="flex-1">
-                  <motion.h3 
-                    className="font-bold text-base sm:text-xl mb-2 text-black dark:text-white"
-                    initial={{ opacity: 0 }}
-                    animate={inView ? { opacity: 1 } : {}}
-                    transition={{ delay: 0.6 + index * 0.2 }}
-                  >
-                    {edu.institution}
-                  </motion.h3>
+                <motion.div 
+                  className="w-12 h-12 rounded-full border-2 border-black dark:border-white bg-white dark:bg-black p-0.5 flex items-center justify-center overflow-hidden shadow-md" 
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: [0, 5, -5, 0],
+                    transition: {
+                      duration: 0.6,
+                      ease: "easeInOut",
+                    },
+                  }}
+                >
+                  <Image
+                    width={48}
+                    height={48}
+                    alt={edu.alt}
+                    src={edu.logo}
+                    className="object-cover rounded-full"
+                    priority={index === 0}
+                  />
+                </motion.div>
+              </motion.div>
+
+              {/* Horizontal connector line */}
+              <motion.div 
+                className="absolute left-12 top-10 h-0.5 w-6 bg-black dark:bg-white"
+                initial={{ scaleX: 0 }}
+                animate={inView ? { scaleX: 1 } : {}}
+                transition={{ delay: 0.6 + index * 0.15, duration: 0.3 }}
+                style={{ transformOrigin: "left" }}
+              />
+
+              {/* Education card - distinctive design */}
+              <Link
+                href={edu.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full"
+              >
+                <motion.div
+                  className="rounded-lg bg-white dark:bg-black border-2 border-black dark:border-white p-5 shadow-md"
+                  whileHover={{
+                    y: -5,
+                    boxShadow: "0 15px 25px rgba(0, 0, 0, 0.08)",
+                    transition: {
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15,
+                    },
+                  }}
+                >
+                  {/* Top section with institution and grade */}
+                  <div className="flex justify-between items-start mb-3">
+                    <motion.h3 
+                      className="font-bold text-lg text-black dark:text-white"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={inView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ delay: 0.6 + index * 0.15 }}
+                    >
+                      {edu.institution}
+                    </motion.h3>
+                    
+                    <motion.div 
+                      className="text-md font-bold text-black dark:text-white bg-gray-100 dark:bg-gray-900 px-3 py-1 rounded-md"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={inView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ 
+                        delay: 0.7 + index * 0.15,
+                        type: "spring",
+                        stiffness: 200
+                      }}
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.2 }
+                      }}
+                    >
+                      {edu.grade}
+                    </motion.div>
+                  </div>
                   
+                  {/* Animated separator line */}
                   <motion.div
-                    className="h-0.5 w-16 bg-black/50 dark:bg-white/50 rounded-full mb-3"
-                    initial={{ width: 0 }}
-                    animate={inView ? { width: 64 } : {}}
-                    transition={{ delay: 0.7 + index * 0.2, duration: 0.4 }}
+                    className="h-0.5 w-full bg-gray-200 dark:bg-gray-800 mb-4"
+                    initial={{ scaleX: 0 }}
+                    animate={inView ? { scaleX: 1 } : {}}
+                    transition={{ delay: 0.7 + index * 0.15, duration: 0.5 }}
+                    style={{ transformOrigin: "left" }}
                   />
                   
-                  <motion.p 
-                    className="text-sm sm:text-base text-gray-700 dark:text-gray-300"
-                    initial={{ opacity: 0 }}
-                    animate={inView ? { opacity: 1 } : {}}
-                    transition={{ delay: 0.8 + index * 0.2 }}
-                  >
-                    {edu.degree}
-                  </motion.p>
-                </div>
-                
-                <div className="flex flex-col items-end justify-center sm:min-w-[120px]">
-                  <motion.div 
-                    className="text-right text-lg sm:text-xl font-semibold text-black dark:text-white mb-2"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.5 + index * 0.2 }}
-                  >
-                    {edu.grade}
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium"
-                    initial={{ opacity: 0 }}
-                    animate={inView ? { opacity: 1 } : {}}
-                    transition={{ delay: 0.7 + index * 0.2 }}
-                  >
-                    {edu.period}
-                  </motion.div>
-                </div>
-              </motion.div>
-            </Link>
-          </motion.div>
-        ))}
+                  {/* Bottom section with details */}
+                  <div className="flex flex-col md:flex-row justify-between space-y-2 md:space-y-0">
+                    <motion.div 
+                      className="flex items-center text-md text-gray-800 dark:text-gray-200"
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.8 + index * 0.15 }}
+                    >
+                      <FaBookOpen className="mr-2 text-black dark:text-white" />
+                      {edu.degree}
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="flex items-center text-gray-600 dark:text-gray-400 font-medium"
+                      initial={{ opacity: 0, x: 8 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.9 + index * 0.15 }}
+                    >
+                      <FaCalendarAlt className="mr-2 text-black dark:text-white" />
+                      {edu.period}
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
         
-        {/* Removed the end node decoration */}
+        {/* Subtle decorative dots */}
+        <motion.div 
+          className="absolute bottom-0 left-0 w-16 h-16 opacity-10"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 0.1 } : {}}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <div className="grid grid-cols-3 gap-2">
+            {[...Array(9)].map((_, i) => (
+              <div key={i} className="w-1 h-1 rounded-full bg-black dark:bg-white" />
+            ))}
+          </div>
+        </motion.div>
       </div>
-      
-      {/* Bottom decoration */}
-      <motion.div
-        className="w-24 h-1 bg-gradient-to-r from-transparent via-black/60 dark:via-white/60 to-transparent rounded-full mx-auto mt-10"
-        initial={{ opacity: 0, width: 0 }}
-        animate={inView ? { opacity: 1, width: 96 } : {}}
-        transition={{ delay: 1.6, duration: 0.8 }}
-      />
     </motion.section>
   );
 };
