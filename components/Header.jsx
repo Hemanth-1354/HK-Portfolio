@@ -79,7 +79,7 @@ const Header = () => {
           {/* Profile image with enhanced animations */}
           <motion.div
             className="relative flex-none md:w-72 md:h-72 w-32 h-32 rounded-full overflow-hidden border-4 border-gray-800 dark:border-gray-200 shadow-xl order-1 md:order-none"
-            style={{ marginTop: '-20px', marginRight: '40px' }} // Adjust this value as needed
+            style={{ marginTop: '-5px', marginRight: '40px' }} // Adjust this value as needed
             initial={{ scale: 0.8, opacity: 0, rotate: -8 }}
             animate={{
               scale: 1,
@@ -113,7 +113,7 @@ const Header = () => {
               sizes="(max-width: 768px) 128px, 288px"
               className="object-cover"
               priority
-              style={{ filter: 'brightness(0.8) contrast(1.3)' }} // Adjust brightness and contrast here
+              style={{ filter: 'brightness(0.8) contrast(1.5)' }} // Adjust brightness and contrast here
             />
           </motion.div>
 
