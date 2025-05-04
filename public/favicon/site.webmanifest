@@ -3,13 +3,13 @@
   "short_name": "Hemanth",
   "icons": [
     {
-      "src": "/myface.png",
+      "src": "/me1.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/myface.png",
+      "src": "/me1.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

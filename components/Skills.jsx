@@ -150,7 +150,7 @@ const Skills = () => {
   return (
     <motion.section
       ref={ref}
-      className={`w-full px-4 py-16 ${colorScheme.secondary} relative overflow-hidden`}
+      className={`w-full px-4 py-16 ${colorScheme.secondary} relative overflow-hidden select-none`} // Added select-none class
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={container}
@@ -186,10 +186,10 @@ const Skills = () => {
         );
       })}
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10 select-none"> 
         {/* Header with decorative elements */}
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-12 select-none" // Added select-none class
           variants={titleVariants}
         >
           <motion.h2 

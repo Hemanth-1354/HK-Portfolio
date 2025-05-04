@@ -159,16 +159,15 @@ const Header = () => {
 
   return (
     <>
-      <ParticleBackground />
       <motion.div
-        className={`w-full py-8 transition-all duration-500 relative ${scrolled ? "bg-opacity-95 backdrop-blur-sm" : ""} select-none`}
+        className={`w-full py-8 transition-all duration-500 relative ${scrolled ? "bg-opacity-95 backdrop-blur-sm" : ""} select-none`} // Added select-none class
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10 select-none"> 
           <motion.div
-            className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-8"
+            className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-8 select-none" // Added select-none class
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}

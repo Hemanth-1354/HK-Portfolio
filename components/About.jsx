@@ -60,15 +60,16 @@ const About = () => {
   };
 
   return (
+    
     <motion.div 
-      className="flex flex-col my-8"
+      className="flex flex-col my-8 select-none" // Added select-none class
       initial="hidden"
       animate={controls}
       variants={container}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 select-none"> 
         <motion.h4 
-          className="text-3xl font-bold text-black dark:text-white mb-3"
+          className="text-3xl font-bold text-black dark:text-white mb-3 select-none"
           variants={item}
         >
           About
@@ -76,6 +77,7 @@ const About = () => {
         <motion.span
           variants={emoji}
           animate="spin"
+          className="select-none"
           style={{ display: 'inline-block' }}
         >
           🌀
@@ -83,19 +85,21 @@ const About = () => {
       </div>
       
       <motion.p 
-        className="text-muted-foreground text"
+        className="text-muted-foreground text select-none" // Added select-none class
         variants={item}
       >
-        I'm a <motion.span className="font-semibold" variants={item}>Full-stack developer</motion.span>
+        I'm a <motion.span className="font-semibold select-none" variants={item}>Full-stack developer</motion.span>
         <motion.span
           variants={emoji}
           animate="wave"
+          className="select-none"
           style={{ display: 'inline-block' }}
         > 🧑‍💻</motion.span> and
-        <motion.span className="font-semibold" variants={item}> AI enthusiast</motion.span>
+        <motion.span className="font-semibold select-none" variants={item}> AI enthusiast</motion.span>
         <motion.span
           variants={emoji}
           animate="float"
+          className="select-none"
           style={{ display: 'inline-block' }}
         > 🤖</motion.span> who enjoys building scalable web apps and "smart" systems
         that sometimes act smarter than expected (and other times just 
@@ -106,9 +110,10 @@ const About = () => {
           }}
           transition={{ duration: 1.5, repeat: Infinity }}
           style={{ display: 'inline-block' }}
+          className="select-none"
         > crash silently 💥</motion.span>). I work mostly with
-        <motion.span className="font-semibold" variants={item}> Django, REST APIs, and React</motion.span>, and have developed full-stack projects like an
-        <motion.span className="font-semibold" variants={item}> online stock trading simulator</motion.span> 
+        <motion.span className="font-semibold select-none" variants={item}> Django, REST APIs, and React</motion.span>, and have developed full-stack projects like an
+        <motion.span className="font-semibold select-none" variants={item}> online stock trading simulator</motion.span> 
         <motion.span
           variants={emoji}
           animate="pulse"
@@ -145,7 +150,7 @@ const About = () => {
         > 😎</motion.span>
       </motion.p>
     </motion.div>
-  );
+      );
 };
 
 export default About;

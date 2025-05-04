@@ -11,12 +11,14 @@ import { NotificationProvider } from "@/context/NotificationContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Experience from "../components/Experience";
 import EndCard from "@/components/endcard";
+import ParticleBackground from "@/components/ParticleBackground";
 
 export default function Home() {
   return (
     <ThemeProvider>
       <Background>
         <NotificationProvider>
+          <ParticleBackground />
           <Header />
           <About />
           <Skills />
