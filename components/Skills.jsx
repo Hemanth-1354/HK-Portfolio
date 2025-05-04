@@ -156,7 +156,7 @@ const Skills = () => {
       variants={container}
       id="skills"
     >
-      // Decorative floating elements
+      
       {decorativeElements.map((element) => {
         const Icon = element.icon;
         return (
