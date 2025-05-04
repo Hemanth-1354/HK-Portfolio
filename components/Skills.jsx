@@ -156,13 +156,13 @@ const Skills = () => {
       variants={container}
       id="skills"
     >
-      {/* Decorative floating elements */}
+      // Decorative floating elements
       {decorativeElements.map((element) => {
         const Icon = element.icon;
         return (
           <motion.div
             key={element.id}
-            className={`absolute ${element.size} ${element.color} opacity-20 dark:opacity-30`}
+            className={`absolute ${element.size} ${element.color} opacity-40 dark:opacity-30`} // Adjusted opacity for light theme
             style={{
               top: element.top,
               left: element.left,

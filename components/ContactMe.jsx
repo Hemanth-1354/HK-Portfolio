@@ -173,23 +173,23 @@ const ContactMe = () => {
   ];
 
    const floatingIcons = [
-    { icon: FaCoffee, size: "text-xl", position: "top-10 left-10", delay: 0, moveY: 15, moveX: 5, rotate: 10 },
-    { icon: FaMugHot, size: "text-2xl", position: "bottom-20 right-12", delay: 0.3, moveY: 20, moveX: 8, rotate: 15 },
-    { icon: GiCoffeePot, size: "text-lg", position: "top-1/3 right-20", delay: 0.6, moveY: 25, moveX: 10, rotate: 20 },
-    { icon: GiCoffeeCup, size: "text-xl", position: "bottom-10 left-1/4", delay: 0.9, moveY: 18, moveX: 7, rotate: 12 },
-    { icon: FaCookie, size: "text-md", position: "top-1/4 left-20", delay: 1.2, moveY: 22, moveX: 9, rotate: 18 },
-    { icon: FaIceCream, size: "text-lg", position: "bottom-1/3 right-1/4", delay: 1.5, moveY: 30, moveX: 12, rotate: 25 },
-    { icon: FaBirthdayCake, size: "text-xl", position: "top-20 right-1/4", delay: 1.8, moveY: 15, moveX: 6, rotate: 8 },
-    { icon: GiCupcake, size: "text-md", position: "bottom-20 left-20", delay: 2.1, moveY: 28, moveX: 11, rotate: 22 },
-    { icon: FaUtensils, size: "text-lg", position: "top-1/2 left-10", delay: 2.4, moveY: 20, moveX: 8, rotate: 15 },
-    { icon: FaBeer, size: "text-xl", position: "bottom-10 right-20", delay: 2.7, moveY: 25, moveX: 10, rotate: 20 },
-    { icon: GiTeapot, size: "text-lg", position: "top-15 right-15", delay: 3.0, moveY: 18, moveX: 7, rotate: 12 },
-    { icon: GiSodaCan, size: "text-md", position: "bottom-15 left-15", delay: 3.3, moveY: 22, moveX: 9, rotate: 18 },
-    { icon: GiWineBottle, size: "text-xl", position: "top-25 right-25", delay: 3.6, moveY: 15, moveX: 6, rotate: 8 },
-    { icon: FaWineGlassAlt, size: "text-lg", position: "bottom-25 left-25", delay: 3.9, moveY: 28, moveX: 11, rotate: 22 },
-    { icon: IoIosIceCream, size: "text-xl", position: "top-1/3 left-1/3", delay: 4.2, moveY: 20, moveX: 8, rotate: 15 },
-    { icon: IoMdCafe, size: "text-lg", position: "bottom-1/3 right-1/3", delay: 4.5, moveY: 25, moveX: 10, rotate: 20 },
-    { icon: FaBlender, size: "text-md", position: "top-40 left-40", delay: 4.8, moveY: 18, moveX: 7, rotate: 12 }
+    { icon: FaCoffee, size: "text-xl", position: "top-5 left-5", delay: 0, moveY: 15, moveX: 5, rotate: 10 },
+    { icon: FaMugHot, size: "text-2xl", position: "bottom-10 right-10", delay: 0.3, moveY: 20, moveX: 8, rotate: 15 },
+    { icon: GiCoffeePot, size: "text-lg", position: "top-1/4 right-15", delay: 0.6, moveY: 25, moveX: 10, rotate: 20 },
+    { icon: GiCoffeeCup, size: "text-xl", position: "bottom-5 left-1/3", delay: 0.9, moveY: 18, moveX: 7, rotate: 12 },
+    { icon: FaCookie, size: "text-md", position: "top-1/3 left-15", delay: 1.2, moveY: 22, moveX: 9, rotate: 18 },
+    { icon: FaIceCream, size: "text-lg", position: "bottom-1/4 right-1/3", delay: 1.5, moveY: 30, moveX: 12, rotate: 25 },
+    { icon: FaBirthdayCake, size: "text-xl", position: "top-15 right-1/3", delay: 1.8, moveY: 15, moveX: 6, rotate: 8 },
+    { icon: GiCupcake, size: "text-md", position: "bottom-15 left-15", delay: 2.1, moveY: 28, moveX: 11, rotate: 22 },
+    { icon: FaUtensils, size: "text-lg", position: "top-1/2 left-5", delay: 2.4, moveY: 20, moveX: 8, rotate: 15 },
+    { icon: FaBeer, size: "text-xl", position: "bottom-5 right-15", delay: 2.7, moveY: 25, moveX: 10, rotate: 20 },
+    { icon: GiTeapot, size: "text-lg", position: "top-10 right-10", delay: 3.0, moveY: 18, moveX: 7, rotate: 12 },
+    { icon: GiSodaCan, size: "text-md", position: "bottom-10 left-10", delay: 3.3, moveY: 22, moveX: 9, rotate: 18 },
+    { icon: GiWineBottle, size: "text-xl", position: "top-20 right-20", delay: 3.6, moveY: 15, moveX: 6, rotate: 8 },
+    { icon: FaWineGlassAlt, size: "text-lg", position: "bottom-20 left-20", delay: 3.9, moveY: 28, moveX: 11, rotate: 22 },
+    { icon: IoIosIceCream, size: "text-xl", position: "top-1/4 left-1/4", delay: 4.2, moveY: 20, moveX: 8, rotate: 15 },
+    { icon: IoMdCafe, size: "text-lg", position: "bottom-1/4 right-1/4", delay: 4.5, moveY: 25, moveX: 10, rotate: 20 },
+    { icon: FaBlender, size: "text-md", position: "top-30 left-30", delay: 4.8, moveY: 18, moveX: 7, rotate: 12 }
   ];
 
   return (
