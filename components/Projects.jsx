@@ -364,7 +364,7 @@ const projects = [
   return (
     <div className="flex flex-col items-center my-8 px-4 md:px-8 max-w-7xl mx-auto" id="projects">
       <div className="w-full text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter my-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter my-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent select-none">
           Featured Projects
         </h2>
         <p className="text-muted-foreground text-lg md:text-xl/relaxed max-w-3xl mx-auto mt-4">

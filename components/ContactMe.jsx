@@ -429,17 +429,19 @@ const ContactMe = () => {
                 className="text-xs text-amber-700/80 mt-4 flex items-center"
               >
                 <motion.span
+                  className="select-none"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   style={{ display: 'inline-block', marginRight: '6px' }}
                 >
                   🤝
                 </motion.span>
-                I promise: No spam, just meaningful bytes and occasional coffee puns
+                <p className="select-none">I promise: No spam, just meaningful bytes and occasional coffee puns</p>
                 <motion.span
                   animate={{ rotate: [0, 20, -20, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                   style={{ display: 'inline-block', marginLeft: '6px' }}
+                  className="select-none"
                 >
                   ☕
                 </motion.span>
