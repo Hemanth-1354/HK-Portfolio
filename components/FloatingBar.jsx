@@ -2,8 +2,6 @@ import React from "react";
 import Github from "./icons/Github";
 import Home from "./icons/Home";
 import LinkedIn from "./icons/LinkedIn";
-import Telegram from "./icons/Telegram";
-import Whatsapp from "./icons/Whatsapp";
 import ToggleThemeBtn from "./ToggleThemeBtn";
 import Link from "next/link";
 import { FileText, Briefcase, GraduationCap, Mail } from "lucide-react";
@@ -125,7 +123,7 @@ const FloatingBar = () => {
           <Link
             className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground rounded-full size-12"
             aria-label="Contact"
-            href="/#contact"
+            href="/#contact-section"
             title="Contact"
           >
             <Mail className="w-5 h-5" />

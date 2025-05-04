@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from "react";
 import {
   FaJs, FaReact, FaHtml5, FaCss3Alt, FaGitAlt, FaDatabase, FaPython,
@@ -9,6 +9,17 @@ import {
   SiPostgresql, SiSelenium, SiTailwindcss, SiMongodb, SiC, SiCplusplus,
 } from "react-icons/si";
 import { motion } from "framer-motion";
+
+const floatingIcons = [
+  { icon: <FaReact />, color: "text-blue-400" },
+  { icon: <FaPython />, color: "text-green-500" },
+  { icon: <SiDjango />, color: "text-emerald-500" },
+  { icon: <FaJs />, color: "text-yellow-400" },
+  { icon: <SiTailwindcss />, color: "text-cyan-400" },
+  { icon: <SiMongodb />, color: "text-green-400" },
+  { icon: <SiPostgresql />, color: "text-indigo-400" },
+  { icon: <FaGithub />, color: "text-gray-700 dark:text-gray-300" },
+];
 
 const Skills = () => {
   const [mounted, setMounted] = useState(false);
@@ -28,7 +39,7 @@ const Skills = () => {
     { id: "aiml", name: "AI/ML" },
   ];
 
- 
+  
   const skills = [
     { name: "Python", icon: <FaPython color="#306998" />, category: ["languages", "backend"], level: 95 },
     { name: "Django", icon: <SiDjango color="#092E20" />, category: ["backend"], level: 85 },
@@ -68,6 +79,31 @@ const Skills = () => {
   };
 
   if (!mounted) return null;
+
+  const FloatingIcon = ({ iconData, index }) => {
+    return (
+      <motion.div
+        initial={{ y: 0, x: 0 }}
+        animate={{ 
+          y: [0, -5, 0],
+          x: [0, 3, 0]
+        }}
+        transition={{
+          duration: 5 + Math.random() * 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: index * 0.3
+        }}
+        className={`absolute text-xl ${iconData.color} opacity-70`}
+        style={{
+          left: `${Math.random() * 90 + 5}%`,
+          top: `${Math.random() * 90 + 5}%`,
+        }}
+      >
+        {iconData.icon}
+      </motion.div>
+    );
+  };
 
   const FadeInSection = ({ children, delay = 0 }) => {
     const [isVisible, setVisible] = useState(false);
@@ -109,20 +145,27 @@ const Skills = () => {
   };
 
   return (
-    <section className="skills-section my-12 px-4 sm:px-6 lg:px-8">
+    <section className="skills-section my-12 px-4 sm:px-6 lg:px-8 relative">
+      {/* Floating foreground icons */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {floatingIcons.map((icon, index) => (
+          <FloatingIcon key={index} iconData={icon} index={index} />
+        ))}
+      </div>
+
       <FadeInSection>
-        <h2 className="text-4xl font-extrabold text-center mb-8 text-gray-900 dark:text-white">
+        <h2 className="text-4xl font-extrabold text-center mb-8 text-gray-900 dark:text-white relative z-10">
           My Technical Skills
         </h2>
       </FadeInSection>
 
-      <div className="max-w-6xl mx-auto mb-8 flex justify-center">
+      <div className="max-w-6xl mx-auto mb-8 flex justify-center relative z-10">
         <div className="flex flex-wrap justify-center gap-2">
           {skillCategories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium font-bold transition-all duration-300 ${
                 activeCategory === category.id
                   ? "bg-black text-white dark:bg-white dark:text-black shadow-md"
                   : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
@@ -134,7 +177,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 relative z-10">
         {filteredSkills.map((skill, index) => (
           <FadeInSection key={index} delay={index * 100}>
             <div className="flex flex-col h-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
@@ -165,7 +208,7 @@ const Skills = () => {
       </div>
 
       {filteredSkills.length === 0 && (
-        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+        <div className="text-center py-8 text-gray-500 dark:text-gray-400 relative z-10">
           No skills found in this category.
         </div>
       )}

@@ -260,7 +260,7 @@ const Experience = () => {
               <FaBriefcase className="text-2xl text-black dark:text-white" />
             </motion.div>
             <h2 className="text-3xl font-bold text-black dark:text-white">
-              Professional Journey
+              Work Experince
             </h2>
           </div>
           <motion.div
@@ -418,7 +418,7 @@ const Experience = () => {
                             opacity: { duration: 0.2 }
                           }
                         }}
-                        className="bg-gray-50 dark:bg-gray-900 overflow-hidden"
+                        className="bg-gray-50 dark:bg-black overflow-hidden"
                       >
                         <div className="p-5 pt-0">
                           <ul className="space-y-3 mb-5">

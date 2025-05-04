@@ -6,7 +6,6 @@ const Card = ({
   status,
   thumbnailSrc,
   thumbnailLightSrc,
-  videoSrc,
   website,
   github,
   frameworks,
@@ -82,7 +81,7 @@ const Card = ({
         <div className="mt-auto flex flex-wrap gap-2">
           {github && (
             <a
-              href={`https://github.com/ashwithrai/${github}`}
+              href={`https://github.com/Hemanth-1354/${github}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 text-sm bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors flex items-center gap-1"
