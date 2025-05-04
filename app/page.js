@@ -10,7 +10,7 @@ import Education from "@/components/Education";
 import { NotificationProvider } from "@/context/NotificationContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Experience from "../components/Experience";
-import EndCard from "@/components/endcard" 
+import EndCard from "@/components/endcard";
 
 export default function Home() {
   return (
@@ -21,8 +21,8 @@ export default function Home() {
           <About />
           <Skills />
           <Projects />
-          <Experience />
-          <Education />
+          <Experience /> 
+          <Education /> 
           <ContactMe />
           <FloatingBar />
           <EndCard />

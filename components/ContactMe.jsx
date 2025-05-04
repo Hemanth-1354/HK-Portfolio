@@ -1,10 +1,34 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { 
+  FaCoffee, 
+  FaMugHot, 
+  FaBeer, 
+  FaGlassWhiskey,
+  FaCookie,
+  FaIceCream,
+  FaBirthdayCake,
+  FaUtensils,
+  FaWineGlassAlt,
+  FaBlender
+} from "react-icons/fa";
+import { 
+  GiCoffeePot, 
+  GiCoffeeCup, 
+  GiCupcake,
+  GiTeapot,
+  GiSodaCan,
+  GiWineBottle
+} from "react-icons/gi";
+import { 
+  IoIosIceCream,
+  IoMdCafe
+} from "react-icons/io";
 
 const ContactMe = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [animationState, setAnimationState] = useState(0);
+  const [animationState, setAnimationState] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   
   const handlePingMe = () => {
@@ -40,7 +64,7 @@ const ContactMe = () => {
     };
   }, []);
 
-  // Enhanced animation variants
+  // Animation variants
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,27 +92,14 @@ const ContactMe = () => {
 
   const pulseVariants = {
     pulse: {
-      scale: [1, 1.05, 1],
+      scale: [1, 1.02, 1],
       boxShadow: [
-        "0 0 0 rgb(255, 255, 255)",
-        "0 0 20px rgb(255, 255, 255)",
-        "0 0 0 rgb(255, 255, 255)"
+        "0 0 0 rgba(139, 69, 19, 0.1)",
+        "0 0 20px rgba(139, 69, 19, 0.3)",
+        "0 0 0 rgba(139, 69, 19, 0.1)"
       ],
       transition: {
-        duration: 2.5,
-        repeat: Infinity,
-        repeatType: "mirror"
-      }
-    }
-  };
-
-  // Background patterns
-  const patternVariants = {
-    animate: {
-      backgroundPosition: ["0% 0%", "100% 100%"],
-      transition: {
-        duration: 20,
-        ease: "linear",
+        duration: 3,
         repeat: Infinity,
         repeatType: "mirror"
       }
@@ -117,11 +128,68 @@ const ContactMe = () => {
     }
   };
 
+  // Enhanced steam effect
+  const steamVariants = {
+    steam1: {
+      y: [-10, -30, -10],
+      opacity: [0.2, 0.6, 0.2],
+      x: [-5, 0, 5],
+      transition: { 
+        duration: 3, 
+        repeat: Infinity,
+        repeatType: "mirror",
+        delay: 0.2
+      }
+    },
+    steam2: {
+      y: [-15, -35, -15],
+      opacity: [0.3, 0.7, 0.3],
+      x: [0, 5, 0],
+      transition: { 
+        duration: 3.5, 
+        repeat: Infinity,
+        repeatType: "mirror",
+        delay: 0.5
+      }
+    },
+    steam3: {
+      y: [-10, -25, -10],
+      opacity: [0.1, 0.5, 0.1],
+      x: [5, 0, -5],
+      transition: { 
+        duration: 4, 
+        repeat: Infinity,
+        repeatType: "mirror",
+        delay: 0.8
+      }
+    }
+  };
+
   // Text highlight animation sequence
   const highlightPhrases = [
     "Django expertise",
     "React magic",
     "API development"
+  ];
+
+   const floatingIcons = [
+    { icon: FaCoffee, size: "text-xl", position: "top-10 left-10", delay: 0, moveY: 15, moveX: 5, rotate: 10 },
+    { icon: FaMugHot, size: "text-2xl", position: "bottom-20 right-12", delay: 0.3, moveY: 20, moveX: 8, rotate: 15 },
+    { icon: GiCoffeePot, size: "text-lg", position: "top-1/3 right-20", delay: 0.6, moveY: 25, moveX: 10, rotate: 20 },
+    { icon: GiCoffeeCup, size: "text-xl", position: "bottom-10 left-1/4", delay: 0.9, moveY: 18, moveX: 7, rotate: 12 },
+    { icon: FaCookie, size: "text-md", position: "top-1/4 left-20", delay: 1.2, moveY: 22, moveX: 9, rotate: 18 },
+    { icon: FaIceCream, size: "text-lg", position: "bottom-1/3 right-1/4", delay: 1.5, moveY: 30, moveX: 12, rotate: 25 },
+    { icon: FaBirthdayCake, size: "text-xl", position: "top-20 right-1/4", delay: 1.8, moveY: 15, moveX: 6, rotate: 8 },
+    { icon: GiCupcake, size: "text-md", position: "bottom-20 left-20", delay: 2.1, moveY: 28, moveX: 11, rotate: 22 },
+    { icon: FaUtensils, size: "text-lg", position: "top-1/2 left-10", delay: 2.4, moveY: 20, moveX: 8, rotate: 15 },
+    { icon: FaBeer, size: "text-xl", position: "bottom-10 right-20", delay: 2.7, moveY: 25, moveX: 10, rotate: 20 },
+    { icon: GiTeapot, size: "text-lg", position: "top-15 right-15", delay: 3.0, moveY: 18, moveX: 7, rotate: 12 },
+    { icon: GiSodaCan, size: "text-md", position: "bottom-15 left-15", delay: 3.3, moveY: 22, moveX: 9, rotate: 18 },
+    { icon: GiWineBottle, size: "text-xl", position: "top-25 right-25", delay: 3.6, moveY: 15, moveX: 6, rotate: 8 },
+    { icon: FaWineGlassAlt, size: "text-lg", position: "bottom-25 left-25", delay: 3.9, moveY: 28, moveX: 11, rotate: 22 },
+    { icon: IoIosIceCream, size: "text-xl", position: "top-1/3 left-1/3", delay: 4.2, moveY: 20, moveX: 8, rotate: 15 },
+    { icon: IoMdCafe, size: "text-lg", position: "bottom-1/3 right-1/3", delay: 4.5, moveY: 25, moveX: 10, rotate: 20 },
+    { icon: FaBlender, size: "text-md", position: "top-40 left-40", delay: 4.8, moveY: 18, moveX: 7, rotate: 12 }
   ];
 
   return (
@@ -130,28 +198,67 @@ const ContactMe = () => {
       animate={isVisible ? "visible" : "hidden"}
       variants={container}
       id="contact-section"
-      className="w-full px-4 py-16 max-w-7xl mx-auto mt-12 relative overflow-visible" // Changed overflow to visible
+      className="w-full px-4 py-16 max-w-7xl mx-auto mt-12 relative overflow-visible"
     >
-      {/* Background pattern */}
+      {/* Coffee-themed background pattern */}
       <motion.div
-        className="absolute inset-0 opacity-5 -z-10"
+        className="absolute inset-0 opacity-10 -z-10"
         style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(66, 153, 225, 0.4) 0%, transparent 50%), 
-                           radial-gradient(circle at 75% 75%, rgba(144, 205, 244, 0.4) 0%, transparent 50%)`
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.4) 0%, transparent 50%), 
+                           radial-gradient(circle at 75% 75%, rgba(101, 67, 33, 0.4) 0%, transparent 50%)`
         }}
-        variants={patternVariants}
-        animate="animate"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+          transition: {
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "mirror"
+          }
+        }}
       />
       
-      {/* Card container with enhanced border effect */}
+      {/* Enhanced floating icons with more movement */}
+      {floatingIcons.map((icon, index) => {
+        const Icon = icon.icon;
+        return (
+          <motion.div
+            key={index}
+            className={`absolute ${icon.position} ${icon.size} text-amber-600 opacity-20`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{
+              opacity: [0.1, 0.4, 0.1],
+              scale: [0.8, 1.2, 0.8],
+              y: [0, -icon.moveY, 0],
+              x: [0, icon.moveX, 0],
+              rotate: [0, icon.rotate, -icon.rotate, 0],
+              transition: {
+                duration: 8 + index,
+                repeat: Infinity,
+                repeatType: "mirror",
+                delay: icon.delay,
+                ease: "easeInOut"
+              }
+            }}
+            whileHover={{
+              scale: 1.5,
+              opacity: 0.5,
+              transition: { duration: 0.3 }
+            }}
+          >
+            <Icon className="w-full h-full" />
+          </motion.div>
+        );
+      })}
+      {/* Card container with coffee-themed border */}
       <motion.div
-        className="relative bg-card border-4 border-border rounded-2xl shadow-lg p-6 md:p-8 overflow-hidden" // Reduced padding
+        className="relative bg-white dark:bg-black border-4 border-amber-50 rounded-2xl shadow-lg p-8 md:p-12 overflow-hidden h-auto mb-20"
         variants={pulseVariants}
         animate="pulse"
       >
-        {/* Decorative elements */}
+        {/* Coffee stain decorative elements */}
         <motion.div
-          className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full -mr-32 -mt-32 blur-2xl"
+          className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-amber-200/10 to-transparent rounded-full -mr-32 -mt-32 blur-2xl"
           initial={{ opacity: 0.5 }}
           animate={{ 
             opacity: [0.4, 0.6, 0.4],
@@ -161,7 +268,7 @@ const ContactMe = () => {
         />
         
         <motion.div
-          className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-secondary/10 to-transparent rounded-full -ml-24 -mb-24 blur-xl"
+          className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-amber-300/10 to-transparent rounded-full -ml-24 -mb-24 blur-xl"
           initial={{ opacity: 0.4 }}
           animate={{ 
             opacity: [0.3, 0.5, 0.3],
@@ -174,35 +281,44 @@ const ContactMe = () => {
         <motion.div className="relative z-10">
           <motion.h2 
             variants={item}
-            className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center flex items-center justify-center" // Reduced font size
+            className="text-3xl md:text-4xl font-bold text-amber-900 mb-6 text-center flex items-center justify-center"
           >
             Let's Brew Some Code Together
             <motion.div
-              className="relative ml-4 inline-block"
+              className="relative ml-4"
               variants={coffeeVariants}
               animate="idle"
             >
-              <span className="text-3xl md:text-4xl">☕</span> 
-              {/* Steam effect */}
-              <motion.div
-                className="absolute -top-6 left-1/2 transform -translate-x-1/2 flex space-x-1"
-                variants={coffeeVariants}
-                animate="steam"
-              >
-                <span className="block w-1 h-3 bg-muted-foreground/30 rounded-full"></span>
-                <span className="block w-1 h-4 bg-muted-foreground/20 rounded-full"></span>
-                <span className="block w-1 h-3 bg-muted-foreground/10 rounded-full"></span>
-              </motion.div>
+              <FaMugHot className="text-4xl text-amber-700" />
+              
+              {/* Enhanced steam effect */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <motion.span 
+                  className="block w-1 h-6 bg-amber-200/50 rounded-full"
+                  variants={steamVariants}
+                  animate="steam1"
+                />
+                <motion.span 
+                  className="block w-1 h-8 bg-amber-200/70 rounded-full"
+                  variants={steamVariants}
+                  animate="steam2"
+                />
+                <motion.span 
+                  className="block w-1 h-5 bg-amber-200/40 rounded-full"
+                  variants={steamVariants}
+                  animate="steam3"
+                />
+              </div>
             </motion.div>
           </motion.h2>
           
           <motion.div 
-            className="w-full flex flex-col items-center gap-4" // Reduced gap
+            className="w-full flex flex-col items-center gap-4"
             variants={container}
           >
             <motion.p 
               variants={item}
-              className="text-muted-foreground text-center text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" // Reduced font size
+              className="text-amber-800 text-center text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             >
               Got an idea that needs {" "}
               <AnimatePresence mode="wait">
@@ -212,7 +328,7 @@ const ContactMe = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.5 }}
-                  className="font-semibold text-primary inline-block"
+                  className="font-semibold text-amber-600 inline-block"
                 >
                   {highlightPhrases[animationState]}
                 </motion.span>
@@ -222,11 +338,11 @@ const ContactMe = () => {
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 style={{ display: 'inline-block', margin: '0 4px' }}
-                className="font-semibold text-foreground"
+                className="font-semibold text-amber-900"
               >
                 AI integrations
               </motion.span>, 
-              or just geek out about tech - my inbox is thirsty for exciting conversations!
+              or just geek out about tech - my inbox is ready for exciting conversations!
             </motion.p>
 
             <motion.div
@@ -239,14 +355,14 @@ const ContactMe = () => {
                 onHoverEnd={() => setIsHovered(false)}
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 0 25px rgba(66, 153, 225, 0.5)"
+                  boxShadow: "0 0 25px rgba(139, 69, 19, 0.3)"
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full border-2 border-primary/30 transition-all duration-300 shadow-md overflow-hidden group" // Reduced padding
+                className="relative bg-amber-700 text-amber-50 font-bold py-3 px-8 rounded-full border-2 border-amber-600/30 transition-all duration-300 shadow-md overflow-hidden group"
               >
-                {/* Enhanced shimmer effect */}
+                {/* Coffee-themed shimmer effect */}
                 <motion.span 
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/40 to-transparent opacity-0 group-hover:opacity-100"
                   initial={{ x: "-100%" }}
                   animate={{ 
                     x: isHovered ? "100%" : "-100%",
@@ -270,7 +386,7 @@ const ContactMe = () => {
                         }}
                         transition={{ duration: 0.8, repeat: Infinity }}
                       >
-                        ✨
+                        ☕
                       </motion.span>
                       Ping Me Now!
                       <motion.span
@@ -280,7 +396,7 @@ const ContactMe = () => {
                         }}
                         transition={{ duration: 0.8, delay: 0.2, repeat: Infinity }}
                       >
-                        ✨
+                        💌
                       </motion.span>
                     </>
                   ) : (
@@ -291,7 +407,7 @@ const ContactMe = () => {
                           transition: { duration: 1.5, repeat: Infinity }
                         }}
                       >
-                        👋
+                        ✉️
                       </motion.span>
                       Let's Connect
                       <motion.span
@@ -299,7 +415,7 @@ const ContactMe = () => {
                           x: [0, 5, 0],
                           transition: { duration: 1, repeat: Infinity }
                         }}
-                        className="text-lg" // Reduced font size
+                        className="text-lg"
                       >
                         →
                       </motion.span>
@@ -310,7 +426,7 @@ const ContactMe = () => {
 
               <motion.p
                 variants={item}
-                className="text-xs text-muted-foreground mt-4 flex items-center" // Reduced font size
+                className="text-xs text-amber-700/80 mt-4 flex items-center"
               >
                 <motion.span
                   animate={{ scale: [1, 1.2, 1] }}
@@ -319,50 +435,20 @@ const ContactMe = () => {
                 >
                   🤝
                 </motion.span>
-                I promise: No spam, just meaningful bytes and occasional bad puns
+                I promise: No spam, just meaningful bytes and occasional coffee puns
                 <motion.span
                   animate={{ rotate: [0, 20, -20, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                   style={{ display: 'inline-block', marginLeft: '6px' }}
                 >
-                  😄
+                  ☕
                 </motion.span>
               </motion.p>
-            </motion.div>
-            
-            {/* Social proof elements */}
-            <motion.div
-              variants={item}
-              className="w-full max-w-md mx-auto mt-4 p-3 bg-background/50 rounded-xl border border-border/40 backdrop-blur-sm" // Reduced padding and max-width
-            >
-              <div className="text-center">
-                <p className="text-xs text-muted-foreground mb-2">Typical response time</p> 
-                <div className="flex items-center justify-center gap-1">
-                  <motion.div 
-                    className="h-2 w-10 bg-primary rounded-full" // Reduced width
-                    animate={{ opacity: [0.6, 1, 0.6] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  />
-                  <motion.div 
-                    className="h-2 w-10 bg-primary rounded-full" // Reduced width
-                    animate={{ opacity: [0.6, 1, 0.6] }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-                  />
-                  <motion.div 
-                    className="h-2 w-10 bg-primary rounded-full" // Reduced width
-                    animate={{ opacity: [0.6, 1, 0.6] }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
-                  />
-                </div>
-                <p className="font-medium mt-2 text-xs">Usually within 24 hours</p> 
-              </div>
             </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
-      
     </motion.div>
-    
   );
 };
 

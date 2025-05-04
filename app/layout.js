@@ -16,11 +16,11 @@ export const metadata = {
   keywords: "Hemanth Kumar Polisetti, Full stack web developer, Python, Django, REST, FastAPI",
   icons: {
     icon: [
-      { url: "/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon/favicon.ico", sizes: "48x48", type: "image/x-icon" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon/myface.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon/myface.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/favicon/myface.svg", type: "image/svg+xml" },
     ],
-    apple: "/favicon/apple-touch-icon.png", // iOS Safari
+    apple: "/favicon/myface.png", // iOS Safari
   },
   manifest: "/favicon/site.webmanifest", // Web app manifest
 };

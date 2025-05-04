@@ -7,8 +7,9 @@ const Projects = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [visibleProjects, setVisibleProjects] = useState(12);
   const [sortOrder, setSortOrder] = useState("newest");
+  const [expandedCards, setExpandedCards] = useState({});
 
-  const projects = [
+const projects = [
     {
       title: "Leet2Git",
       time: "Aug 2024",
@@ -295,6 +296,14 @@ const Projects = () => {
     },
   ];
 
+  // Toggle card expansion
+  const toggleExpand = (index) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   // Filter projects based on category and search term
   const filteredProjects = projects
     .filter((project) => {
@@ -489,7 +498,9 @@ const Projects = () => {
         {sortedProjects.slice(0, visibleProjects).map((project, index) => (
           <div 
             key={index} 
-            className="transform transition-all duration-300 hover:-translate-y-2"
+            className={`transform transition-all duration-300 hover:-translate-y-2 ${
+              expandedCards[index] ? "lg:col-span-2 xl:col-span-1" : ""
+            }`}
           >
             <Card
               title={project.title}
@@ -502,6 +513,8 @@ const Projects = () => {
               github={project.github}
               frameworks={project.frameworks}
               description={project.description}
+              isExpanded={expandedCards[index]}
+              onToggleExpand={() => toggleExpand(index)}
             />
           </div>
         ))}

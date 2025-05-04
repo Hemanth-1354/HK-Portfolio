@@ -1,16 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import {
-  FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaDatabase, FaPython,
-  FaJava, FaDocker, FaAws, FaBootstrap, FaGithubSquare, FaPhp, FaSass,
-  FaWordpress, FaVuejs, FaAngular, FaStripe, FaUnity, FaSlack, FaCode,
-  FaServer, FaTools, FaCloud, FaLaptopCode, FaMobile, FaCog
+  FaJs, FaReact, FaHtml5, FaCss3Alt, FaGitAlt, FaDatabase, FaPython,
+  FaBootstrap, FaGithub, FaFileExcel, FaChartLine
 } from "react-icons/fa";
+import {
+  SiDjango, SiFlask, SiNumpy, SiPandas, SiScikitlearn, SiSqlite,
+  SiPostgresql, SiSelenium, SiTailwindcss, SiMongodb, SiC, SiCplusplus,
+} from "react-icons/si";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const [mounted, setMounted] = useState(false);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     setMounted(true);
@@ -20,33 +22,42 @@ const Skills = () => {
     { id: "all", name: "All Skills" },
     { id: "frontend", name: "Frontend" },
     { id: "backend", name: "Backend" },
-    { id: "tools", name: "Tools & DevOps" },
+    { id: "tools", name: "Tools" },
     { id: "languages", name: "Languages" },
+    { id: "databases", name: "Databases" },
+    { id: "aiml", name: "AI/ML" },
   ];
 
+ 
   const skills = [
     { name: "Python", icon: <FaPython color="#306998" />, category: ["languages", "backend"], level: 95 },
-    { name: "JavaScript", icon: <FaJs color="#f0db4f" />, category: ["frontend", "languages"], level: 85 },
+    { name: "Django", icon: <SiDjango color="#092E20" />, category: ["backend"], level: 85 },
+    { name: "Flask", icon: <SiFlask color="#000000" />, category: ["backend"], level: 80 },
+    { name: "Django REST", icon: <SiDjango color="#092E20" />, category: ["backend"], level: 85 },
     { name: "React", icon: <FaReact color="#61dbfb" />, category: ["frontend"], level: 80 },
-    { name: "CSS3", icon: <FaCss3Alt color="#2965f1" />, category: ["frontend"], level: 85 },
-    { name: "HTML5", icon: <FaHtml5 color="#e34f26" />, category: ["frontend"], level: 95 },
-    { name: "Tailwind CSS", icon: <FaCss3Alt color="#38b2ac" />, category: ["frontend"], level: 85 },
+    { name: "JavaScript", icon: <FaJs color="#f0db4f" />, category: ["frontend", "languages"], level: 85 },
+    { name: "MongoDB", icon: <SiMongodb color="#47A248" />, category: ["databases"], level: 85 },
+    { name: "PostgreSQL", icon: <SiPostgresql color="#336791" />, category: ["databases"], level: 80 },
+    { name: "SQL", icon: <FaDatabase color="#f39c12" />, category: ["databases"], level: 90 },
+    { name: "SQLite", icon: <SiSqlite color="#003B57" />, category: ["databases"], level: 85 },
     { name: "Git", icon: <FaGitAlt color="#f34f29" />, category: ["tools"], level: 90 },
-    { name: "MongoDB", icon: <FaDatabase color="#47A248" />, category: ["backend"], level: 80 },
-    { name: "SQL", icon: <FaDatabase color="#f39c12" />, category: ["backend"], level: 90 },
+    { name: "GitHub", icon: <FaGithub color="#181717" />, category: ["tools"], level: 90 },
+    { name: "Selenium (WebDriver)", icon: <SiSelenium color="#43B02A" />, category: ["tools"], level: 80 },
+    { name: "NumPy", icon: <SiNumpy color="#013243" />, category: ["aiml"], level: 85 },
+    { name: "Pandas", icon: <SiPandas color="#150458" />, category: ["aiml"], level: 80 },
+    { name: "Scikit-learn", icon: <SiScikitlearn color="#F7931E" />, category: ["aiml"], level: 75 },
+    { name: "Matplotlib", icon: <FaChartLine color="#11557C" />, category: ["aiml"], level: 75 },
+    {name: "C/C++", icon: <SiCplusplus color="#00599C" />, category: ["languages"], level: 75 },
+    { name: "Tailwind CSS", icon: <SiTailwindcss color="#38b2ac" />, category: ["frontend"], level: 85 },
     { name: "Bootstrap", icon: <FaBootstrap color="#563d7c" />, category: ["frontend"], level: 85 },
-    { name: "GitHub", icon: <FaGithubSquare color="#181717" />, category: ["tools"], level: 90 },
-    { name: "Vue.js", icon: <FaVuejs color="#41b883" />, category: ["frontend"], level: 60 },
-    { name: "Vue.js", icon: <FaPhp color="#41b883" />, category: ["frontend"], level: 75 },
-    { name: "Angular", icon: <FaAngular color="#dd1b16" />, category: ["frontend"], level: 60 },
-    { name: "Stripe", icon: <FaStripe color="#6772e5" />, category: ["backend"], level: 70 },
-    { name: "Firebase", icon: <FaDatabase color="#FFCA28" />, category: ["backend", "tools"], level: 75 },
-    { name: "Unity", icon: <FaUnity color="#000000" />, category: ["tools"], level: 50 },
+    { name: "CSS", icon: <FaCss3Alt color="#2965f1" />, category: ["frontend"], level: 85 },
+    { name: "HTML", icon: <FaHtml5 color="#e34f26" />, category: ["frontend"], level: 95 },
+    { name: "MS Excel", icon: <FaFileExcel color="#217346" />, category: ["tools"], level: 90 },
   ];
 
+
   const filteredSkills = skills.filter(skill => 
-    (activeCategory === "all" || skill.category.includes(activeCategory)) &&
-    skill.name.toLowerCase().includes(searchTerm.toLowerCase())
+    activeCategory === "all" || skill.category.includes(activeCategory)
   );
 
   const getColorByLevel = (level) => {
@@ -58,7 +69,6 @@ const Skills = () => {
 
   if (!mounted) return null;
 
-  // Custom animation component
   const FadeInSection = ({ children, delay = 0 }) => {
     const [isVisible, setVisible] = useState(false);
     const domRef = React.useRef();
@@ -75,14 +85,13 @@ const Skills = () => {
         });
       });
       
-      const currentElement = domRef.current;
-      if (currentElement) {
-        observer.observe(currentElement);
+      if (domRef.current) {
+        observer.observe(domRef.current);
       }
       
       return () => {
-        if (currentElement) {
-          observer.unobserve(currentElement);
+        if (domRef.current) {
+          observer.unobserve(domRef.current);
         }
       };
     }, [delay]);
@@ -107,50 +116,28 @@ const Skills = () => {
         </h2>
       </FadeInSection>
 
-      <div className="max-w-6xl mx-auto mb-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 w-full md:w-auto">
-            {skillCategories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-black text-white dark:bg-white dark:text-white shadow-md"
-                    : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-          
-          {/* Search Box */}
-          <div className="relative w-full md:w-64">
-            <input
-              type="text"
-              placeholder="Search skills..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {searchTerm && (
-              <button
-                onClick={() => setSearchTerm("")}
-                className="absolute right-3 top-2.5 text-gray-500 dark:text-gray-400"
-              >
-                ✕
-              </button>
-            )}
-          </div>
+      <div className="max-w-6xl mx-auto mb-8 flex justify-center">
+        <div className="flex flex-wrap justify-center gap-2">
+          {skillCategories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeCategory === category.id
+                  ? "bg-black text-white dark:bg-white dark:text-black shadow-md"
+                  : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredSkills.map((skill, index) => (
           <FadeInSection key={index} delay={index * 100}>
-            <div className="flex flex-col h-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out">
+            <div className="flex flex-col h-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-4">
                 <div className="text-4xl mr-4">
                   {React.cloneElement(skill.icon, { className: 'w-8 h-8' })}
@@ -169,7 +156,7 @@ const Skills = () => {
                   <div 
                     className={`h-2.5 rounded-full ${getColorByLevel(skill.level)}`} 
                     style={{ width: `${skill.level}%` }}
-                  ></div>
+                  />
                 </div>
               </div>
             </div>
@@ -179,7 +166,7 @@ const Skills = () => {
 
       {filteredSkills.length === 0 && (
         <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-          No skills match your search. Try a different term or category.
+          No skills found in this category.
         </div>
       )}
     </section>
