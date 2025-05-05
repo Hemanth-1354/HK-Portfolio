@@ -9,9 +9,10 @@ const Projects = () => {
   const [sortOrder, setSortOrder] = useState("newest");
   const [expandedCards, setExpandedCards] = useState({});
 
-const projects = [
+  const projects = [
     {
       title: "AI Stock Portfolio Optimizer",
+      time: "Jun 2024",
       thumbnailSrc: "stock-optimizer.jpg",
       github: "stock-portfolio-optimizer",
       category: "ai",
@@ -30,6 +31,7 @@ const projects = [
     },
     {
       title: "Django Authentication API (JWT)",
+      time: "May 2024",
       thumbnailSrc: "django-auth.jpg",
       github: "django-jwt-auth",
       category: "fullstack",
@@ -49,10 +51,8 @@ const projects = [
     {
       title: "Online Share Trading Simulator",
       time: "Apr 2024",
-      status: "Completed",
       thumbnailSrc: "trading-simulator.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
+      website: "#",
       github: "stock-trading-simulator",
       category: "fullstack",
       frameworks: [
@@ -70,10 +70,7 @@ const projects = [
     {
       title: "News Aggregator with AI Summarization",
       time: "Mar 2024",
-      status: "Completed",
       thumbnailSrc: "news-aggregator.jpg",
-      videoSrc: "https://example.com/news-aggregator", // Keep live option
-      website: "https://example.com/news-aggregator", // Keep live option
       github: "ai-news-aggregator",
       category: "ai",
       frameworks: [
@@ -91,10 +88,7 @@ const projects = [
     {
       title: "Music Player Web App",
       time: "Feb 2024",
-      status: "Completed",
       thumbnailSrc: "music-player.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
       github: "django-music-player",
       category: "fullstack",
       frameworks: [
@@ -112,10 +106,7 @@ const projects = [
     {
       title: "Heart Disease Predictor App",
       time: "Jan 2024",
-      status: "Completed",
       thumbnailSrc: "heart-disease.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
       github: "heart-disease-predictor",
       category: "ai",
       frameworks: [
@@ -133,10 +124,7 @@ const projects = [
     {
       title: "Basic RAG Bot with Web-Based Loader",
       time: "Dec 2023",
-      status: "Completed",
       thumbnailSrc: "rag-bot.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
       github: "rag-bot-ipl",
       category: "ai",
       frameworks: [
@@ -154,10 +142,7 @@ const projects = [
     {
       title: "Movie Recommender System",
       time: "Nov 2023",
-      status: "Completed",
       thumbnailSrc: "movie-recommender.jpg",
-      videoSrc: "https://example.com/movie-recommender", // Keep live option
-      website: "https://example.com/movie-recommender", // Keep live option
       github: "movie-recommender",
       category: "ai",
       frameworks: [
@@ -175,10 +160,7 @@ const projects = [
     {
       title: "MNIST Digit Classification with CNN",
       time: "Oct 2023",
-      status: "Completed",
       thumbnailSrc: "mnist-cnn.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
       github: "mnist-cnn-classifier",
       category: "ai",
       frameworks: [
@@ -196,10 +178,7 @@ const projects = [
     {
       title: "Credit Scoring ML Model",
       time: "Sep 2023",
-      status: "Completed",
       thumbnailSrc: "credit-scoring.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
       github: "credit-risk-model",
       category: "ai",
       frameworks: [
@@ -217,10 +196,8 @@ const projects = [
     {
       title: "Omni Search: Multi-Source Content Aggregator",
       time: "Aug 2023",
-      status: "Completed",
       thumbnailSrc: "omni-search.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
+      website: "#",
       github: "multi-search-engine",
       category: "fullstack",
       frameworks: [
@@ -238,10 +215,8 @@ const projects = [
     {
       title: "Typing Speed Test App",
       time: "Jul 2023",
-      status: "Completed",
       thumbnailSrc: "typing-test.jpg",
-      videoSrc: "#", // Remove live option
-      website: "#", // Remove live option
+      website: "#",
       github: "typing-speed-test",
       category: "frontend",
       frameworks: [
@@ -280,12 +255,29 @@ const projects = [
         project.description.toLowerCase().includes(searchLower) ||
         project.frameworks.some((framework) =>
           framework.toLowerCase().includes(searchLower)
-        )
-      );
+      ));
     });
 
-  // No sorting needed as 'time' is removed
-  const sortedProjects = [...filteredProjects];
+  // Sort projects based on sortOrder
+  const sortedProjects = [...filteredProjects].sort((a, b) => {
+    const getTimestamp = (dateStr) => {
+      const [month, year] = dateStr.split(" ");
+      const monthMap = {
+        Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6,
+        Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12
+      };
+      return new Date(parseInt(year), monthMap[month] - 1).getTime();
+    };
+
+    const timeA = getTimestamp(a.time);
+    const timeB = getTimestamp(b.time);
+
+    if (sortOrder === "newest") {
+      return timeB - timeA;
+    } else {
+      return timeA - timeB;
+    }
+  });
 
   // Load more projects when scrolling to bottom
   useEffect(() => {
@@ -414,15 +406,15 @@ const projects = [
         </div>
         <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg shadow-sm text-center">
           <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-            {projects.filter(p => p.category === "fullstack").length}
+            {projects.filter(p => p.status === "Completed").length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-300">Full Stack</div>
+          <div className="text-sm text-gray-600 dark:text-gray-300">Completed</div>
         </div>
         <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg shadow-sm text-center">
           <div className="text-3xl font-bold text-green-600 dark:text-green-400">
-            {projects.filter(p => p.category === "ai").length}
+            {projects.filter(p => p.category === "fullstack").length}
           </div>
-          <div className="text-sm text-gray-600 dark:text-gray-300">AI Projects</div>
+          <div className="text-sm text-gray-600 dark:text-gray-300">Full Stack</div>
         </div>
         <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg shadow-sm text-center">
           <div className="text-3xl font-bold text-amber-600 dark:text-amber-400">
@@ -448,7 +440,9 @@ const projects = [
           >
             <Card
               title={project.title}
+              time={project.time}
               thumbnailSrc={project.thumbnailSrc}
+              website={project.website}
               github={project.github}
               frameworks={project.frameworks}
               description={project.description}
@@ -458,6 +452,36 @@ const projects = [
           </div>
         ))}
       </div>
+
+      {/* Load More Button */}
+      {visibleProjects < sortedProjects.length && (
+        <button
+          onClick={() => setVisibleProjects(prev => Math.min(prev + 6, sortedProjects.length))}
+          className="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md transition-all duration-300"
+        >
+          Load More Projects
+        </button>
+      )}
+
+      {/* No Results */}
+      {sortedProjects.length === 0 && (
+        <div className="w-full py-12 text-center">
+          <div className="text-3xl mb-4">🔍</div>
+          <h3 className="text-xl font-medium mb-2">No projects found</h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            Try adjusting your search or filter criteria
+          </p>
+          <button 
+            onClick={() => {
+              setFilter("all");
+              setSearchTerm("");
+            }}
+            className="mt-4 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          >
+            Reset Filters
+          </button>
+        </div>
+      )}
     </div>
   );
 };
