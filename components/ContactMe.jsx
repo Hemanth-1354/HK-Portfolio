@@ -11,10 +11,14 @@ import {
   FaBirthdayCake,
   FaUtensils,
   FaWineGlassAlt,
+  FaCookieBite,
+
   FaBlender
 } from "react-icons/fa";
 import { 
   GiCoffeePot, 
+  GiChocolateBar,
+  GiDonut,
   GiCoffeeCup, 
   GiCupcake,
   GiTeapot,
@@ -131,7 +135,7 @@ const ContactMe = () => {
   // Enhanced steam effect
   const steamVariants = {
     steam1: {
-      y: [-10, -30, -10],
+      y: [-5, -15, -5], // Lowered the y values
       opacity: [0.2, 0.6, 0.2],
       x: [-5, 0, 5],
       transition: { 
@@ -142,7 +146,7 @@ const ContactMe = () => {
       }
     },
     steam2: {
-      y: [-15, -35, -15],
+      y: [-10, -20, -10], // Lowered the y values
       opacity: [0.3, 0.7, 0.3],
       x: [0, 5, 0],
       transition: { 
@@ -153,7 +157,7 @@ const ContactMe = () => {
       }
     },
     steam3: {
-      y: [-10, -25, -10],
+      y: [-5, -15, -5], // Lowered the y values
       opacity: [0.1, 0.5, 0.1],
       x: [5, 0, -5],
       transition: { 
@@ -171,26 +175,29 @@ const ContactMe = () => {
     "React magic",
     "API development"
   ];
-
-   const floatingIcons = [
-    { icon: FaCoffee, size: "text-xl", position: "top-5 left-5", delay: 0, moveY: 15, moveX: 5, rotate: 10 },
-    { icon: FaMugHot, size: "text-2xl", position: "bottom-10 right-10", delay: 0.3, moveY: 20, moveX: 8, rotate: 15 },
-    { icon: GiCoffeePot, size: "text-lg", position: "top-1/4 right-15", delay: 0.6, moveY: 25, moveX: 10, rotate: 20 },
-    { icon: GiCoffeeCup, size: "text-xl", position: "bottom-5 left-1/3", delay: 0.9, moveY: 18, moveX: 7, rotate: 12 },
-    { icon: FaCookie, size: "text-md", position: "top-1/3 left-15", delay: 1.2, moveY: 22, moveX: 9, rotate: 18 },
-    { icon: FaIceCream, size: "text-lg", position: "bottom-1/4 right-1/3", delay: 1.5, moveY: 30, moveX: 12, rotate: 25 },
-    { icon: FaBirthdayCake, size: "text-xl", position: "top-15 right-1/3", delay: 1.8, moveY: 15, moveX: 6, rotate: 8 },
-    { icon: GiCupcake, size: "text-md", position: "bottom-15 left-15", delay: 2.1, moveY: 28, moveX: 11, rotate: 22 },
-    { icon: FaUtensils, size: "text-lg", position: "top-1/2 left-5", delay: 2.4, moveY: 20, moveX: 8, rotate: 15 },
-    { icon: FaBeer, size: "text-xl", position: "bottom-5 right-15", delay: 2.7, moveY: 25, moveX: 10, rotate: 20 },
-    { icon: GiTeapot, size: "text-lg", position: "top-10 right-10", delay: 3.0, moveY: 18, moveX: 7, rotate: 12 },
-    { icon: GiSodaCan, size: "text-md", position: "bottom-10 left-10", delay: 3.3, moveY: 22, moveX: 9, rotate: 18 },
-    { icon: GiWineBottle, size: "text-xl", position: "top-20 right-20", delay: 3.6, moveY: 15, moveX: 6, rotate: 8 },
-    { icon: FaWineGlassAlt, size: "text-lg", position: "bottom-20 left-20", delay: 3.9, moveY: 28, moveX: 11, rotate: 22 },
-    { icon: IoIosIceCream, size: "text-xl", position: "top-1/4 left-1/4", delay: 4.2, moveY: 20, moveX: 8, rotate: 15 },
-    { icon: IoMdCafe, size: "text-lg", position: "bottom-1/4 right-1/4", delay: 4.5, moveY: 25, moveX: 10, rotate: 20 },
-    { icon: FaBlender, size: "text-md", position: "top-30 left-30", delay: 4.8, moveY: 18, moveX: 7, rotate: 12 }
-  ];
+const floatingIcons = [
+    { icon: FaCoffee, size: "text-xl", position: "top-[5%] left-[5%]", delay: 0, moveY: 15, moveX: 5, rotate: 10 },
+    { icon: FaGlassWhiskey, size: "text-2xl", position: "top-[15%] right-[8%]", delay: 0.2, moveY: -18, moveX: -7, rotate: -12 }, // Added whiskey glass
+    { icon: FaMugHot, size: "text-2xl", position: "bottom-[12%] right-[12%]", delay: 0.3, moveY: 20, moveX: -8, rotate: -15 },
+    { icon: GiCoffeePot, size: "text-lg", position: "top-[25%] right-[18%]", delay: 0.6, moveY: -25, moveX: 10, rotate: 20 },
+    { icon: GiCoffeeCup, size: "text-xl", position: "bottom-[8%] left-[35%]", delay: 0.9, moveY: 18, moveX: -7, rotate: -12 },
+    { icon: FaCookie, size: "text-md", position: "top-[35%] left-[20%]", delay: 1.2, moveY: -22, moveX: 9, rotate: 18 },
+    { icon: FaIceCream, size: "text-lg", position: "bottom-[28%] right-[38%]", delay: 1.5, moveY: 30, moveX: -12, rotate: -25 },
+    { icon: FaBirthdayCake, size: "text-xl", position: "top-[18%] right-[32%]", delay: 1.8, moveY: -15, moveX: 6, rotate: 8 },
+    { icon: GiCupcake, size: "text-md", position: "bottom-[20%] left-[18%]", delay: 2.1, moveY: 28, moveX: -11, rotate: -22 },
+    { icon: FaUtensils, size: "text-lg", position: "top-[50%] left-[7%]", delay: 2.4, moveY: -20, moveX: 8, rotate: 15 },
+    { icon: FaBeer, size: "text-xl", position: "bottom-[7%] right-[18%]", delay: 2.7, moveY: 25, moveX: -10, rotate: -20 },
+    { icon: GiTeapot, size: "text-lg", position: "top-[12%] right-[12%]", delay: 3.0, moveY: -18, moveX: 7, rotate: 12 },
+    { icon: GiSodaCan, size: "text-md", position: "bottom-[15%] left-[12%]", delay: 3.3, moveY: 22, moveX: -9, rotate: -18 },
+    { icon: GiWineBottle, size: "text-xl", position: "top-[22%] right-[25%]", delay: 3.6, moveY: -15, moveX: 6, rotate: 8 },
+    { icon: FaWineGlassAlt, size: "text-lg", position: "bottom-[25%] left-[25%]", delay: 3.9, moveY: 28, moveX: -11, rotate: -22 },
+    { icon: IoIosIceCream, size: "text-xl", position: "top-[40%] left-[30%]", delay: 4.2, moveY: -20, moveX: 8, rotate: 15 },
+    { icon: IoMdCafe, size: "text-lg", position: "bottom-[35%] right-[30%]", delay: 4.5, moveY: 25, moveX: -10, rotate: -20 },
+    { icon: FaBlender, size: "text-md", position: "top-[15%] left-[15%]", delay: 4.8, moveY: -18, moveX: 7, rotate: 12 },
+    { icon: FaCookieBite, size: "text-lg", position: "bottom-[40%] right-[5%]", delay: 5.1, moveY: 30, moveX: -5, rotate: -25 },
+    { icon: GiChocolateBar, size: "text-xl", position: "top-[60%] right-[15%]", delay: 5.4, moveY: -15, moveX: 10, rotate: 10 },
+    { icon: GiDonut, size: "text-md", position: "bottom-[5%] left-[45%]", delay: 5.7, moveY: 22, moveX: -8, rotate: -18 }
+];
 
   return (
     <motion.div 
@@ -360,7 +367,6 @@ const ContactMe = () => {
                 whileTap={{ scale: 0.98 }}
                 className="relative bg-amber-700 text-amber-50 font-bold py-3 px-8 rounded-full border-2 border-amber-600/30 transition-all duration-300 shadow-md overflow-hidden group"
               >
-                {/* Coffee-themed shimmer effect */}
                 <motion.span 
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/40 to-transparent opacity-0 group-hover:opacity-100"
                   initial={{ x: "-100%" }}
@@ -378,7 +384,14 @@ const ContactMe = () => {
                 {/* Button content with animated emojis */}
                 <span className="relative z-10 flex items-center gap-2 text-base"> 
                   {isHovered ? (
-                    <>
+                    <motion.div
+                      key="ping"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex items-center gap-2"
+                    >
                       <motion.span
                         animate={{ 
                           rotate: [0, 15, -15, 0],
@@ -398,9 +411,16 @@ const ContactMe = () => {
                       >
                         💌
                       </motion.span>
-                    </>
+                    </motion.div>
                   ) : (
-                    <>
+                    <motion.div
+                      key="connect"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex items-center gap-2"
+                    >
                       <motion.span
                         animate={{ 
                           rotate: [0, 15, 0],
@@ -419,7 +439,7 @@ const ContactMe = () => {
                       >
                         →
                       </motion.span>
-                    </>
+                    </motion.div>
                   )}
                 </span>
               </motion.button>
@@ -436,7 +456,7 @@ const ContactMe = () => {
                 >
                   🤝
                 </motion.span>
-                <p className="select-none">I promise: No spam, just meaningful bytes and occasional coffee puns</p>
+                <span className="select-none">I promise: No spam, just meaningful bytes and occasional coffee puns</span>
                 <motion.span
                   animate={{ rotate: [0, 20, -20, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
